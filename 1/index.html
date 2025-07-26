@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Proyecto</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="menu-icon" onclick="toggleMenu(event)">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <a href="https://leonardodrr.github.io/Portafolio/" class="logo">
+                <i class="fas fa-briefcase"></i> PORTAFOLIO
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="album-main">
+        <a href="file:///C:/Users/Deathjoker/Desktop/portafolio/index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver
+        </a>
+        <h1 class="project-title">Registro de asistencias v1</h1>
+
+        <!-- Descripción destacada -->
+        <div class="project-description-box">
+            <p class="project-description">
+                Este sistema de registro de asistencias está diseñado para ser <strong>rápido, eficiente y completamente funcional en modo offline</strong>, lo que garantiza su operación sin necesidad de conexión a internet. Actualmente, estoy trabajando en su versión online, pero esta edición actual ya ofrece un rendimiento excepcional.
+            </p>
+            <ul class="features-list">
+                <li><strong>Filtro horario automático:</strong> Permite registrar entradas entre las <strong>5:00 AM y 12:00 PM</strong>, y salidas entre las <strong>12:01 PM y 5:00 PM</strong>. Fuera de estos horarios, el sistema no permite nuevos registros.</li>
+                <li><strong>Ampliable y personalizable:</strong> Incluye una lista predeterminada de IDs de usuarios (del 1 al 45) que puede modificarse según las necesidades.</li>
+                <li><strong>Organización automática de datos:</strong> Crea automáticamente una carpeta para cada mes y un archivo diario dentro de ella.</li>
+                <li><strong>Durabilidad y eficiencia:</strong> Diseñado para funcionar durante largos períodos sin problemas.</li>
+            </ul>
+        </div>
+
+        <!-- Álbum de fotos -->
+        <div class="photo-album">
+            <div class="photo-item">
+                <img src="1.jpg" alt="Foto 1" class="photo" onclick="openModal('1.jpg')">
+                <p class="photo-caption">Descripción de la foto 1.</p>
+            </div>
+            <div class="photo-item">
+                <img src="2.jpg" alt="Foto 2" class="photo" onclick="openModal('2.jpg')">
+                <p class="photo-caption">Descripción de la foto 2.</p>
+            </div>
+            <div class="photo-item">
+                <img src="3.jpg" alt="Foto 3" class="photo" onclick="openModal('3.jpg')">
+                <p class="photo-caption">Descripción de la foto 3.</p>
+            </div>
+            <div class="photo-item">
+                <img src="4.jpg" alt="Foto 4" class="photo" onclick="openModal('4.jpg')">
+                <p class="photo-caption">Descripción de la foto 4.</p>
+            </div>
+            <div class="photo-item">
+                <img src="5.jpg" alt="Foto 5" class="photo" onclick="openModal('5.jpg')">
+                <p class="photo-caption">Descripción de la foto 5.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para ver imágenes en grande -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Footer fijo -->
+    <footer class="footer-fixed">
+        <p>&copy; 2025 ING Leonardo Daniel Rubio Rojas. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Menú desplegable -->
+    <div class="sidebar" id="sidebar">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardorojas30.10.2003@gmail.com&su=Asunto%20del%20mensaje&body=Hola,%20me%20gustaría%20contactarte%20para..." target="_blank" class="menu-item gmail">
+            <i class="fas fa-envelope"></i> Gmail
+        </a>
+        <a href="https://wa.me/+584146329982?text=Hola,%20me%20gustaría%20contactarte%20para..." target="_blank" class="menu-item whatsapp">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://t.me/Deathjjoker" target="_blank" class="menu-item telegram">
+            <i class="fab fa-telegram-plane"></i> Telegram
+        </a>
+    </div>
+
+    <!-- Script para el menú -->
+    <script>
+        // Función para alternar el menú
+        function toggleMenu(event) {
+            event.stopPropagation(); // Evita que el clic en el ícono active el listener del documento
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("active");
+        }
+
+        // Cerrar el menú al hacer clic fuera de él
+        document.addEventListener("click", function () {
+            const sidebar = document.getElementById("sidebar");
+            if (sidebar.classList.contains("active")) {
+                sidebar.classList.remove("active");
+            }
+        });
+
+        // Evitar que el clic dentro del menú lo cierre
+        document.getElementById("sidebar").addEventListener("click", function (event) {
+            event.stopPropagation();
+        });
+
+        // Función para abrir el modal con la imagen seleccionada
+        function openModal(imageSrc) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

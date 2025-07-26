@@ -1,0 +1,356 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: 0.3s ease;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i {
+    color: #FFA500; /* Color del ícono */
+}
+
+.logo:hover {
+    color: #FFA500; /* Cambia el color al pasar el mouse */
+}
+
+/* Botón "Volver" */
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FFA500;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-btn:hover {
+    background-color: #FF8C00;
+}
+
+/* Main */
+.album-main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('back.jpg'); /* Fondo personalizado */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.project-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+.project-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center;
+    max-width: 800px;
+    color: #ccc;
+}
+
+/* Álbum de fotos */
+.photo-album {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.photo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-item img:hover {
+    transform: scale(1.1);
+}
+
+.photo-caption {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 10px;
+    color: #333;
+}
+
+/* Modal para ver imágenes en grande */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #FFA500;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    left: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    margin: 5px 0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.menu-item i {
+    font-size: 1.2rem;
+}
+
+.menu-item.gmail {
+    background-color: #D44638;
+}
+
+.menu-item.whatsapp {
+    background-color: #25D366;
+}
+
+.menu-item.telegram {
+    background-color: #0088cc;
+}
+
+.menu-item:hover {
+    opacity: 0.9;
+}
+
+/* Footer fijo */
+.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    z-index: 999;
+}
+
+
+/* Estilo para la caja de descripción */
+.project-description-box {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-description-box:hover {
+    transform: translateY(-5px);
+}
+
+.project-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.project-description strong {
+    color: #FFA500; /* Resalta palabras importantes */
+}
+
+/* Lista de características */
+.features-list {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list li {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #555;
+    position: relative;
+    padding-left: 20px;
+}
+
+.features-list li::before {
+    content: "•";
+    color: #FFA500; /* Color del punto */
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+@media (max-width: 768px) {
+    .portfolio-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-link {
+        margin-bottom: 20px;
+    }
+    .project-title {
+        font-size: 1.5rem;
+    }
+    .project-description {
+        font-size: 1rem;
+    }
+
+    .card-content {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .portfolio-card {
+        max-width: 90%;
+    }
+
+    .sidebar {
+        width: 80%; /* Ocupa el 80% del ancho en móviles */
+        max-width: 300px; /* Ancho máximo */
+        max-height: 80vh; /* Altura máxima del 80% de la pantalla */
+    }
+
+    .sidebar.active {
+        left: 0; /* Mostrar completamente en la pantalla */
+    }
+    .photo-album {
+        grid-template-columns: 1fr;
+    }
+}
+
+

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CERO ONE CERO</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Fuente Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Moderno -->
+    <header class="header-modern">
+        <div class="container">
+            <div class="logo-section">
+                <a href="#" class="logo">
+                    <i class="fas fa-code"></i> Cero ONE Cero
+                </a>
+            </div>
+            <nav class="navbar-desktop">
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li> <!-- Manteniendo el nombre original -->
+                    <li><a href="#proyectos">Proyectos</a></li> <!-- Simplificado -->
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="menu-icon" onclick="toggleMenu(event)">
+                    <div class="bar bar1"></div>
+                    <div class="bar bar2"></div>
+                    <div class="bar bar3"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Sección Hero -->
+    <section class="hero-section" id="inicio">
+        <div class="hero-content">
+            <h1 data-aos="fade-up" data-aos-delay="100">Soluciones Digitales Profesionales</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Desarrollo web, sistemas personalizados y soluciones tecnológicas a medida</p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+                <a href="#catalogo" class="btn-primary">Ver Servicios</a>
+                <a href="#contacto" class="btn-secondary">Contactar</a>
+            </div>
+        </div>
+    </section>
+    <!-- Sección de Catálogo de Servicios -->
+    <section class="catalog-section" id="catalogo"> <!-- Manteniendo el ID original -->
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones tecnológicas diseñadas para tu negocio</p>
+            </div>
+            <div class="catalog-grid">
+                <!-- Servicio 1 -->
+                <div class="catalog-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-badge">Popular</div>
+                    <div class="card-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Desarrollo Web</h3>
+                    <p>Sitios web modernos, responsivos y optimizados para todos los dispositivos.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Diseño Responsive</li>
+                        <li><i class="fas fa-check"></i> SEO Optimizado</li>
+                        <li><i class="fas fa-check"></i> Hosting Incluido</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="price">Desde 20$</span>
+                        <a href="#contacto" class="btn-small">Solicitar</a>
+                    </div>
+                </div>
+                <!-- Servicio 2 -->
+                <div class="catalog-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Sistemas Personalizados</h3>
+                    <p>Aplicaciones a medida para automatizar procesos de tu negocio.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Registro de Asistencias</li>
+                        <li><i class="fas fa-check"></i> Gestión de Inventarios</li>
+                        <li><i class="fas fa-check"></i> Reportes Automáticos</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="price">Desde 40$ </span>
+                        <a href="#contacto" class="btn-small">Solicitar</a>
+                    </div>
+                </div>
+                <!-- Servicio 3 -->
+                <div class="catalog-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Aplicaciones Móviles</h3>
+                    <p>Apps nativas y híbridas para iOS y Android con las últimas tecnologías.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> iOS & Android</li>
+                        <li><i class="fas fa-check"></i> Integración API</li>
+                        <li><i class="fas fa-check"></i> Soporte Técnico</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="price">Desde 50$</span>
+                        <a href="#contacto" class="btn-small">Solicitar</a>
+                    </div>
+                </div>
+                <!-- Servicio 4 -->
+                <div class="catalog-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Consultoría Tech</h3>
+                    <p>Asesoramiento técnico para optimizar tus procesos digitales.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Análisis de Procesos</li>
+                        <li><i class="fas fa-check"></i> Planificación Digital</li>
+                        <li><i class="fas fa-check"></i> Capacitación</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="price">Desde 5$ por clase</span>
+                        <a href="#contacto" class="btn-small">Consultar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sección de Proyectos con Carrusel -->
+    <section class="projects-section" id="proyectos">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Proyectos Realizados</h2>
+                <p>Ejemplos de nuestro trabajo y soluciones implementadas</p>
+            </div>
+            <div class="project-carousel" data-aos="fade-up">
+                <div class="carousel-inner">
+                    <!-- Proyecto 1 -->
+                    <div class="project-card active">
+                        <div class="project-image">
+                            <img src="image1.jpg" alt="Registro de Asistencias v1">
+                            <div class="project-type-badge">App Mobile</div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Reproductor de musica</h3>
+                            <p>Creado por Cero One Cero un reproductor amable con el usuario , ligero y sin spyware, permisos innecesarios y seguro</p>
+                        <a href="https://www.mediafire.com/file/50cuhiygm6n2ezc/Tu_Reproductor.apk/file" target="_blank" class="ver-proyecto">Ver Proyecto</a>
+                        </div>
+                    </div>
+                    <!-- Proyecto 2 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="image2.jpg" alt="Registro de Asistencias v2">
+                            <div class="project-type-badge">Sistema .exe</div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Registro de Asistencias para la Institucion Maria Reina</h3>
+                            <p>Versión mejorada con selección manual de entrada/salida y validación de datos.</p>
+                            <a href="2/index.html" target="_blank" class="ver-proyecto">Ver Proyecto</a>
+                        </div>
+                    </div>
+                    <!-- Proyecto 3 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="escuela.jpg" alt="Página Web Instituto">
+                            <div class="project-type-badge">Web Institucional</div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Web Instituto San Francisco</h3>
+                            <p>Sitio web informativo completo con compatibilidad multi-dispositivo.</p>
+                            <a href="https://gesf.netlify.app" target="_blank" class="ver-proyecto">Ver Proyecto</a>
+                        </div>
+                    </div>
+                    <!-- Proyecto 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="image4.jpg" alt="Nombre descriptivo del nuevo proyecto">
+                        <div class="project-type-badge">Sistema .exe</div>
+                    </div>
+                    <div class="project-content">
+
+                        <h3>Registro de Asistencia para Grupo Escolar San Francisco</h3>
+                        <!-- Cambia la descripción -->
+                        <p>version mejorada y mas comoda del primer registro de asistencia </p>
+                        <!-- Cambia el href con el enlace al proyecto -->
+                        <a href="3/index.html" target="_blank" class="ver-proyecto">Ver Proyecto</a>
+                    </div>
+                </div>  
+
+
+                </div>
+                <!-- Controles de Navegación -->
+                <div class="carousel-controls">
+                    <button class="prev-btn" aria-label="Proyecto anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-btn" aria-label="Proyecto siguiente"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <!-- Indicadores de Proyectos -->
+                <div class="carousel-indicators">
+                    <span class="indicator active" data-index="0" aria-label="Ir al proyecto 1"></span>
+                    <span class="indicator" data-index="1" aria-label="Ir al proyecto 2"></span>
+                    <span class="indicator" data-index="2" aria-label="Ir al proyecto 3"></span>
+                    <span class="indicator" data-index="3" aria-label="Ir al proyecto 4"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact-section" id="contacto">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Contacto</h2>
+                <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>leonardorojas30.10.2003@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+58 414-632-9982</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-telegram"></i>
+                        <div>
+                            <h4>Telegram</h4>
+                            <p>@Deathjjoker</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://wa.me/+584146329982" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://t.me/Deathjjoker" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-left">
+                    <h3>Enviar Mensaje</h3>
+
+                    <form id="contactForm" action="https://formspree.io/f/xovldnll " method="POST">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Teléfono (opcional)">
+                        </div>
+                        <div class="form-group">
+                            <select id="service" name="service" required>
+                                <option value="">Selecciona un servicio</option>
+                                <option value="web">Desarrollo Web</option>
+                                <option value="sistema">Sistemas Personalizados</option>
+                                <option value="app">Aplicaciones Móviles</option>
+                                <option value="consultoria">Consultoría Tech</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Describe tu proyecto..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sección Sobre Mí -->
+    <section class="about-section" id="sobre-mi">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h2>Sobre Cero One Cero</h2>
+                    <p>Liderado por un Ingeniero en Informática especializado en desarrollo web y sistemas personalizados. Con experiencia en crear soluciones tecnológicas eficientes y adaptadas a las necesidades específicas de cada cliente.</p>
+                    <p>Nuestro enfoque combina la innovación tecnológica con la funcionalidad práctica, asegurando resultados que impulsen el crecimiento de tu negocio.</p>
+                    <div class="skills">
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">UI/UX</span>
+                    </div>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <div class="profile-placeholder">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Mejorado -->
+    <footer class="footer-modern">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Cero One Cero</h3>
+                    <p>Soluciones digitales profesionales para hacer crecer tu negocio.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/16ycZoDTS3/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/cero_onecero?igsh=MXM0cnZsbThrYzUzeQ=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/LeonardoDrr"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#catalogo">Catálogo</a></li>
+                        <li><a href="#proyectos">Proyectos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#contacto">Desarrollo Web</a></li>
+                        <li><a href="#contacto">Sistemas Personalizados</a></li>
+                        <li><a href="#contacto">Aplicaciones Móviles</a></li>
+                        <li><a href="#contacto">Consultoría Tech</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> leonardorojas30.10.2003@gmail.com</p>
+                    <p><i class="fab fa-whatsapp"></i> +58 414-632-9982</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Leonardo Daniel Rubio Rojas. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="politica-privacidad.html">Política de Privacidad</a>
+                    <a href="terminos-servicio.html">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Menú desplegable mejorado -->
+    <div class="sidebar-modern" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menú</h3>
+            <button class="close-menu" onclick="toggleMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="#inicio" onclick="toggleMenu()"><i class="fas fa-home"></i> Inicio</a>
+            <a href="#catalogo" onclick="toggleMenu()"><i class="fas fa-th-large"></i> Catálogo</a>
+            <a href="#proyectos" onclick="toggleMenu()"><i class="fas fa-folder"></i> Proyectos</a>
+            <a href="#contacto" onclick="toggleMenu()"><i class="fas fa-envelope"></i> Contacto</a>
+            <a href="#sobre-mi" onclick="toggleMenu()"><i class="fas fa-user"></i> Sobre Mí</a>
+        </nav>
+        <div class="sidebar-contact">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardorojas30.10.2003@gmail.com&su=Consulta%20de%20Servicios&body=Hola%20Leonardo,%20me%20interesan%20tus%20servicios..." target="_blank" class="sidebar-btn gmail">
+                <i class="fas fa-envelope"></i> Gmail
+            </a>
+            <a href="https://wa.me/+584146329982?text=Hola%20Leonardo,%20me%20interesan%20tus%20servicios..." target="_blank" class="sidebar-btn whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </div>
+    <!-- Botón WhatsApp Flotante -->
+    <a href="https://wa.me/+584146329982?text=Hola%20Leonardo,%20me%20interesan%20tus%20servicios..." target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <!-- Botón Volver Arriba -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <!-- AOS Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Script principal -->
+    <script src="script.js"></script>
+</body>
+</html>

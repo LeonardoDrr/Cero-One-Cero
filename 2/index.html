@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Proyecto - Registro de Asistencias v2</title>
+    <!-- Fuentes e Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Estilos principales (asegúrate de que la ruta sea correcta) -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Ajusta la ruta si es necesario -->
+    <style>
+        /* Estilos específicos para esta página */
+        .project-detail-main {
+            padding: 2rem 0 4rem;
+            flex: 1;
+            background-color: #f8f9fa;
+        }
+        .project-detail-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .back-to-projects {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #3498db;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            border: 2px solid #3498db;
+        }
+        .back-to-projects:hover {
+            background-color: #3498db;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .project-detail-title {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .project-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .project-highlight p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .project-features {
+            list-style: none;
+            padding: 0;
+        }
+        .project-features li {
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        .project-features li i {
+            color: #27ae60;
+            margin-top: 0.3rem;
+        }
+        .photo-album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .photo-item-detail {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            background: white;
+            cursor: pointer;
+        }
+        .photo-item-detail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .photo-detail {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .photo-caption-detail {
+            padding: 0.8rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        /* Modal mejorado */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+        }
+
+        @media (max-width: 768px) {
+            .project-detail-container {
+                padding: 0 1rem;
+            }
+            .project-detail-title {
+                font-size: 1.8rem;
+            }
+            .photo-album-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            .photo-detail {
+                height: 140px;
+            }
+            .close {
+                font-size: 30px;
+                top: 15px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Moderno (Basado en tu página principal) -->
+    <header class="header-modern">
+        <div class="container">
+            <div class="logo-section">
+                <a href="../index.html" class="logo"> <!-- Ajusta el enlace a tu index.html principal -->
+                    <i class="fas fa-code"></i> Cero ONE Cero
+                </a>
+            </div>
+            <nav class="navbar-desktop">
+                <ul class="nav-menu">
+                    <li><a href="../index.html#inicio">Inicio</a></li>
+                    <li><a href="../index.html#catalogo">Catálogo</a></li>
+                    <li><a href="../index.html#proyectos">Proyectos</a></li>
+                    <li><a href="../index.html#contacto">Contacto</a></li>
+                    <li><a href="../index.html#sobre-mi">Sobre Mí</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="menu-icon" onclick="toggleMenu(event)">
+                    <div class="bar bar1"></div>
+                    <div class="bar bar2"></div>
+                    <div class="bar bar3"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="project-detail-main">
+        <div class="project-detail-container">
+            <a href="../index.html#proyectos" class="back-to-projects"> <!-- Ajusta el enlace -->
+                <i class="fas fa-arrow-left"></i> Volver a Proyectos
+            </a>
+
+            <h1 class="project-detail-title">Registro de Asistencias v2</h1>
+
+            <!-- Descripción destacada -->
+            <div class="project-highlight">
+                <p>
+                    Este sistema de registro de asistencias está diseñado para ser <strong>rápido, flexible y completamente funcional en modo offline</strong>, lo que garantiza su operación sin necesidad de conexión a internet. Actualmente, estoy trabajando en su versión online, pero esta edición actual ya ofrece un rendimiento excepcional con características clave que facilitan el control diario de entradas y salidas.
+                </p>
+                <ul class="project-features">
+                    <li><i class="fas fa-check-circle"></i> <strong>Selección manual de entrada o salida:</strong> Un botón intuitivo permite al usuario elegir si está registrando una entrada o una salida.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Ampliable y personalizable:</strong> Incluye una lista predeterminada de IDs de usuarios (del 1 al 45) que puede modificarse según las necesidades.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Organización automática de datos:</strong> Crea automáticamente una carpeta para cada mes y un archivo diario dentro de ella.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Durabilidad y eficiencia:</strong> Diseñado para funcionar durante largos períodos sin problemas.</li>
+                </ul>
+            </div>
+
+            <!-- Álbum de fotos -->
+            <h2 style="text-align: center; margin-bottom: 1.5rem; color: #2c3e50;">Galería del Proyecto</h2>
+            <div class="photo-album-grid">
+                <div class="photo-item-detail">
+                    <img src="1.jpg" alt="Interfaz principal del sistema" class="photo-detail" onclick="openModal('1.jpg')">
+                    <p class="photo-caption-detail">Interfaz principal del sistema</p>
+                </div>
+                <div class="photo-item-detail">
+                    <img src="2.jpg" alt="Selección de entrada/salida" class="photo-detail" onclick="openModal('2.jpg')">
+                    <p class="photo-caption-detail">Selección de entrada/salida</p>
+                </div>
+                <div class="photo-item-detail">
+                    <img src="3.jpg" alt="Registro de asistencia" class="photo-detail" onclick="openModal('3.jpg')">
+                    <p class="photo-caption-detail">Registro de asistencia</p>
+                </div>
+                <div class="photo-item-detail">
+                    <img src="4.jpg" alt="Estructura de carpetas generada" class="photo-detail" onclick="openModal('4.jpg')">
+                    <p class="photo-caption-detail">Estructura de carpetas generada</p>
+                </div>
+                <div class="photo-item-detail">
+                    <img src="5.jpg" alt="Ejemplo de archivo de registro diario" class="photo-detail" onclick="openModal('5.jpg')">
+                    <p class="photo-caption-detail">Ejemplo de archivo de registro diario</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para ver imágenes en grande -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Footer Mejorado (Basado en tu página principal) -->
+    <footer class="footer-modern">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Cero One Cero</h3>
+                    <p>Soluciones digitales profesionales para hacer crecer tu negocio.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/16ycZoDTS3/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/cero_onecero?igsh=MXM0cnZsbThrYzUzeQ=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/LeonardoDrr"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="../index.html#inicio">Inicio</a></li>
+                        <li><a href="../index.html#catalogo">Catálogo</a></li>
+                        <li><a href="../index.html#proyectos">Proyectos</a></li>
+                        <li><a href="../index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="../index.html#contacto">Desarrollo Web</a></li>
+                        <li><a href="../index.html#contacto">Sistemas Personalizados</a></li>
+                        <li><a href="../index.html#contacto">Aplicaciones Móviles</a></li>
+                        <li><a href="../index.html#contacto">Consultoría Tech</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> leonardorojas30.10.2003@gmail.com</p>
+                    <p><i class="fab fa-whatsapp"></i> +58 414-632-9982</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Leonardo Daniel Rubio Rojas. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="../politica-privacidad.html">Política de Privacidad</a>
+                    <a href="../terminos-servicio.html">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Menú desplegable mejorado (Basado en tu página principal) -->
+    <div class="sidebar-modern" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menú</h3>
+            <button class="close-menu" onclick="toggleMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="../index.html#inicio" onclick="toggleMenu()"><i class="fas fa-home"></i> Inicio</a>
+            <a href="../index.html#catalogo" onclick="toggleMenu()"><i class="fas fa-th-large"></i> Catálogo</a>
+            <a href="../index.html#proyectos" onclick="toggleMenu()"><i class="fas fa-folder"></i> Proyectos</a>
+            <a href="../index.html#contacto" onclick="toggleMenu()"><i class="fas fa-envelope"></i> Contacto</a>
+            <a href="../index.html#sobre-mi" onclick="toggleMenu()"><i class="fas fa-user"></i> Sobre Mí</a>
+        </nav>
+        <div class="sidebar-contact">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardorojas30.10.2003@gmail.com&su=Consulta%20de%20Servicios&body=Hola%20Leonardo,%20me%20interesan%20tus%20servicios..." target="_blank" class="sidebar-btn gmail">
+                <i class="fas fa-envelope"></i> Gmail
+            </a>
+            <a href="https://wa.me/+584146329982?text=Hola%20Leonardo,%20me%20interesan%20tus%20servicios..." target="_blank" class="sidebar-btn whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+        // Función para alternar el menú (debe coincidir con la de tu página principal)
+        function toggleMenu(event) {
+            event?.stopPropagation();
+            const sidebar = document.getElementById("sidebar");
+            const menuIcon = document.querySelector('.menu-icon');
+            sidebar.classList.toggle("active");
+            menuIcon?.classList.toggle("active");
+        }
+
+        // Cerrar el menú al hacer clic fuera de él
+        document.addEventListener("click", function (event) {
+            const sidebar = document.getElementById("sidebar");
+            const menuIcon = document.querySelector('.menu-icon');
+            if (sidebar.classList.contains("active") &&
+                !sidebar.contains(event.target) &&
+                !document.querySelector('.menu-icon')?.contains(event.target)) {
+                sidebar.classList.remove("active");
+                menuIcon?.classList.remove("active");
+            }
+        });
+
+        // Cerrar menú al cambiar tamaño de ventana
+        window.addEventListener('resize', function () {
+            const sidebar = document.getElementById("sidebar");
+            const menuIcon = document.querySelector('.menu-icon');
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove("active");
+                menuIcon?.classList.remove("active");
+            }
+        });
+
+        // Función para abrir el modal con la imagen seleccionada
+        function openModal(imageSrc) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+
+        // Cerrar modal al hacer clic fuera de la imagen
+        window.onclick = function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
